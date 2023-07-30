@@ -13,54 +13,54 @@ class HomeScreen extends StatelessWidget {
         builder: (controller) {
           return Scaffold(
             appBar: AppBar(
-              title: Text("Dynamic Field"),
+              title: const Text("Dynamic Field"),
             ),
             body: ListView.builder(
                 itemCount: controller.controllerList.length,
-                itemBuilder: (context,index){
+                itemBuilder: (context, index) {
                   return Container(
                       height: 80,
-                      margin: EdgeInsets.only(top: 5, left: 8, right: 8),
+                      margin: const EdgeInsets.only(top: 5, left: 8, right: 8),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(16),
                         color: Colors.orangeAccent[100],
                       ),
                       child: Center(
                           child: ListTile(
-                            title: TextField(
-                              controller: controller.controllerList[index],
-                              decoration: const InputDecoration(
-                                border: OutlineInputBorder(),
-                                hintText: "Email",
-                              ),
-                            ),
-                            trailing: Column(
-                              children: [
-                                InkWell(
-                                    onTap: (){
-                                      print(controller.controllerList[index].text);
-                                    },
-                                    child: const Icon(Icons.play_circle)),
-
-                                InkWell(
-                                    onTap: (){
-                                      controller.removeValue(index);
-                                    },
-                                    child: const Icon(Icons.cancel))
-                              ],
-                            ),
-                          )));;
+                        title: TextField(
+                          controller: controller.controllerList[index],
+                          decoration: const InputDecoration(
+                            border: OutlineInputBorder(),
+                            hintText: "Email",
+                          ),
+                        ),
+                        trailing: Column(
+                          children: [
+                            InkWell(
+                                onTap: () {
+                                  print(controller.controllerList[index].text);
+                                },
+                                child: const Icon(Icons.play_circle)),
+                            InkWell(
+                                onTap: () {
+                                  controller.removeValue(index);
+                                },
+                                child: const Icon(Icons.cancel))
+                          ],
+                        ),
+                      )));
                 }),
             floatingActionButton: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 FloatingActionButton(
-                  child: Icon(Icons.add),
+                  child: const Icon(Icons.add),
                   onPressed: () {
                     controller.addWidget();
                   },
-                ),FloatingActionButton(
-                  child: Text("All"),
+                ),
+                FloatingActionButton(
+                  child: const Text("All"),
                   onPressed: () {
                     controller.allValue();
                   },
@@ -71,5 +71,3 @@ class HomeScreen extends StatelessWidget {
         });
   }
 }
-
-
